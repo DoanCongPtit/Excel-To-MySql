@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MY APP</title>
+    <style>
+      .container {
+        width: 60%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!--  SINGLE FILE -->
+      <form action="/uploadfile" enctype="multipart/form-data" method="POST">
+        <input type="file" name="myFile" />
+        <input type="submit" value="Upload a file" />
+      </form>
+
+      <h1>Search Here</h1>
+      <form action="/search">
+        <input type="search" name="name" placeholder="Search name" />
+        <input type="search" name="mail" placeholder="Search mail" />
+        <input type="submit" value="Search" />
+      </form>
+  </body>
+</html>
