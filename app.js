@@ -62,11 +62,11 @@ app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
     for (let index = 2; index < rowsCount.length+2; index++) {
         let id = worksheet[`A${index}`].v;
         let name = worksheet[`B${index}`].v;
-        let mail = worksheet[`C${index}`].v;
+        let code = worksheet[`C${index}`].v;
 
-        console.log({ id: id, name: name, mail: mail })
-        let query = "INSERT INTO user (id, name, mail) VALUES (?)";
-        let values = [id, name, mail];
+        console.log({ id: id, name: name, code: code })
+        let query = "INSERT INTO user (id, name, code) VALUES (?)";
+        let values = [id, name, code];
 
         db.query(query, [values], (error, response) => {
             console.log(error || response)
@@ -78,9 +78,9 @@ app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
 
 app.get('/search', (req, res) => {
     let name = req.query.name;
-    let mail = req.query.mail;
+    let code = req.query.code;
 
-    let query = "select * from user where name LIKE '%" + name + "%' AND mail LIKE '%" + mail + "%'";
+    let query = "select * from user where name LIKE '%" + name + "%' AND code LIKE '%" + code + "%'";
     db.query(query, (err, result) => {
         if (err) console.log(err);
         console.log(result)

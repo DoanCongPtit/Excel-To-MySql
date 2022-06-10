@@ -9,14 +9,15 @@
   <body>
     <table>
       <tr>
+        <th>STT</th>
         <th>Full Name</th>
-        <th>Email Address</th>
+        <th>Code</th>
       </tr>
       <% if(user.length!=0){ let i=1; user.forEach((data) => { %>
       <tr>
         <td><%= i %></td>
         <td><%= data.name %></td>
-        <td><%= data.mail %></td>
+        <td><%= data.code %></td>
       </tr>
       <% i++; }) %> <% } else{ %>
       <tr>
